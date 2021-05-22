@@ -23,3 +23,39 @@ var Storeitems = [{
     name: "Sonic winter sports",
     price: "29.99"
 }];
+
+function makeStoreIterator(start, end, step, Array) {
+    let nextIndex = start;
+    let iterationCount = 0;
+
+    const storeIterator = {
+        next: function () {
+            let result;
+
+            if (nextIndex < end) {
+                result = {
+                    value: Array,
+                    done: false
+                };
+                nextIndex += step;
+                iterationCount++;
+                return result;
+            }
+            return {
+                value: iterationCount,
+                done: true
+            };
+        }
+    };
+    return storeIterator;
+}
+
+const it = makeStoreIterator(0, Storeitems.length, 1, Storeitems);
+let result = it.next();
+while (!result.done) {
+    console.log(result.value);
+    result = it.next();
+}
+console.log(Totalprice);
+
+console.log("Iterated over sequence of size: ", result.value);
