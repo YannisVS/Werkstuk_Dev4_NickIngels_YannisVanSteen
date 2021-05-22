@@ -1,51 +1,49 @@
 var Storeitems = [{
-        name: "Mario Kart",
-        price: "45.99"
-    }, {
-        name: "Mario Party",
-        price: "59.99"
-    }, {
-        name: "Legend of Zelda",
-        price: "55.49"
-    }, {
-        name: "Luigi's Mansion",
-        price: "65.99"
-    }, {
-        name: "Wii Sports",
-        price: "69.99"
-    }, {
-        name: "Switch the game",
-        price: "34.99"
-    }, {
-        name: "Mario Kart 2",
-        price: "43.99"
-    }, {
-        name: "Sonic winter sports",
-        price: "29.99"
-    }, {
-        name: "Sonic expansion summer sports",
-        price: "19.99"
-    }, {
-        name: "Mario kart delux expansion",
-        price: "9.99"
-    }, {
-        name: "wii sports bungie jump edition",
-        price: "4.99"
-    }, {
-        name: "Sonic expansion atumn sports",
-        price: "19.99"
-    }, {
-        name: "Zelda Link in trouble expansion",
-        price: "39.99"
-    }, {
-        name: "Luigi's second mansion expansion",
-        price: "19.99"
-    }, {
-        name: "Mario Party it continues expansion",
-        price: "29.99"
-    }
-
-];
+    name: "Mario Kart",
+    price: "45.99"
+}, {
+    name: "Mario Party",
+    price: "59.99"
+}, {
+    name: "Legend of Zelda",
+    price: "55.49"
+}, {
+    name: "Luigi's Mansion",
+    price: "65.99"
+}, {
+    name: "Wii Sports",
+    price: "69.99"
+}, {
+    name: "Switch the game",
+    price: "34.99"
+}, {
+    name: "Mario Kart 2",
+    price: "43.99"
+}, {
+    name: "Sonic winter sports",
+    price: "29.99"
+}, {
+    name: "Sonic expansion summer sports",
+    price: "19.99"
+}, {
+    name: "Mario kart delux expansion",
+    price: "9.99"
+}, {
+    name: "wii sports bungie jump edition",
+    price: "4.99"
+}, {
+    name: "Sonic expansion atumn sports",
+    price: "19.99"
+}, {
+    name: "Zelda Link in trouble expansion",
+    price: "39.99"
+}, {
+    name: "Luigi's second mansion expansion",
+    price: "19.99"
+}, {
+    name: "Mario Party it continues expansion",
+    price: "29.99"
+}];
 
 function makeStoreIterator(start, end, step, Array) {
     let nextIndex = start;
