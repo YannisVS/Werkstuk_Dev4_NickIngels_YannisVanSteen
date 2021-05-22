@@ -34,7 +34,8 @@ function makeStoreIterator(start, end, step, Array) {
 
             if (nextIndex < end) {
                 result = {
-                    value: Array,
+                    value: Array[iterationCount].price,
+                    name: Array[iterationCount].name,
                     done: false
                 };
                 nextIndex += step;
@@ -52,8 +53,10 @@ function makeStoreIterator(start, end, step, Array) {
 
 const it = makeStoreIterator(0, Storeitems.length, 1, Storeitems);
 let result = it.next();
+let Totalprice = 0;
 while (!result.done) {
-    console.log(result.value);
+    Totalprice += parseFloat(result.value);
+    console.log(result);
     result = it.next();
 }
 console.log(Totalprice);
