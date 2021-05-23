@@ -1,92 +1,46 @@
-// Dit is de file waarin het sorting algoritme geschreven wordt!
-
-let games = [{
-    name: "Mario Kart",
-    price: "45.99"
-}, {
-    name: "Legend of Zelda",
-    price: "55.49"
-}, {
-    name: "Luigi's Mansion",
-    price: "65.99"
-}, {
-    name: "Wii Sports",
-    price: "69.99"
-}, {
-    name: "Switch the game",
-    price: "34.99"
-}, {
-    name: "Mario Kart",
-    price: "43.99"
-}, {
-    name: "Sonic winter sports",
-    price: "29.99"
-}, {
-    name: "Mario Party",
-    price: "59.99"
-}, {
-    name: "Lightning McQueen",
-    price: "59.99"
-}, {
-    name: "Queen's Game",
-    price: "9.99"
-}, {
-    name: "Alphabet for kids",
-    price: "9.99"
-}];
+var gamePrice = [49.95, 38.99, 27.49, 66.35, 78.32, 9.99, 18.36, 56.58, 45.99, 59.99, 59.49, 52.60, 50.33, 35.49, 34.50, 34.99, 23.99, 14.95, 74.99];
 
 
-console.log(games);
 
-function swap(games, leftIndex, rightIndex) {
-    var temp = games[leftIndex];
-    games[leftIndex] = games[rightIndex];
-    games[rightIndex] = temp;
+function swap(gamePrice, leftIndex, rightIndex) {
+    var temp = gamePrice[leftIndex];
+    gamePrice[leftIndex] = gamePrice[rightIndex];
+    gamePrice[rightIndex] = temp;
 }
 
-function partition(games, left, right) {
-    var pivot = games[Math.floor((right + left) / 2)],
-        i = left,
-        j = right;
+function partition(gamePrice, left, right) {
+    var pivot = gamePrice[Math.floor((right + left) / 2)], //middle element
+        i = left, //left pointer
+        j = right; //right pointer
     while (i <= j) {
-        while (games[i] < pivot) {
-            console.log("i: " + i);
+        while (gamePrice[i] < pivot) {
             i++;
         }
-        while (games[j] > pivot) {
-            console.log("j: " + j);
+        while (gamePrice[j] > pivot) {
             j--;
         }
-        if (games[i] <= games[j]) {
-            console.log("i");
-            console.log(games[i].price);
-            console.log("j");
-            console.log(games[j].price);
-            swap(games, i, j);
+        if (i <= j) {
+            swap(gamePrice, i, j); //sawpping two elements
             i++;
             j--;
-        } else if (games[i] >= games[j]) {
-            swap(games, i, j);
-            i--;
-            j++;
         }
     }
     return i;
 }
 
-function quickSort(games, left, right) {
+function quickSort(gamePrice, left, right) {
     var index;
-    if (games.length > 1) {
-        index = partition(games, left, right);
-        if (left < index - 1) {
-            quickSort(games, left, index - 1);
+    if (gamePrice.length > 1) {
+        index = partition(gamePrice, left, right); //index returned from partition
+        if (left < index - 1) { //more elements on the left side of the pivot
+            quickSort(gamePrice, left, index - 1);
         }
-        if (index < right) {
-            quickSort(games, index, right);
+        if (index < right) { //more elements on the right side of the pivot
+            quickSort(gamePrice, index, right);
         }
     }
-    return games;
+    return gamePrice;
 }
-
-var sortedArray = quickSort(games, 0, games.length - 1);
+// first call to quick sort
+var sortedArray = quickSort(gamePrice, 0, gamePrice.length - 1);
 console.log(sortedArray);
