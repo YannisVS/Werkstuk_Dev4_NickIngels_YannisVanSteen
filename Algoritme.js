@@ -9,9 +9,9 @@ function swap(gamePrice, leftIndex, rightIndex) {
 }
 
 function partition(gamePrice, left, right) {
-    var pivot = gamePrice[Math.floor((right + left) / 2)], //middle element
-        i = left, //left pointer
-        j = right; //right pointer
+    var pivot = gamePrice[Math.floor((right + left) / 2)],
+        i = left,
+        j = right;
     while (i <= j) {
         while (gamePrice[i] < pivot) {
             i++;
@@ -20,7 +20,7 @@ function partition(gamePrice, left, right) {
             j--;
         }
         if (i <= j) {
-            swap(gamePrice, i, j); //sawpping two elements
+            swap(gamePrice, i, j);
             i++;
             j--;
         }
@@ -31,16 +31,16 @@ function partition(gamePrice, left, right) {
 function quickSort(gamePrice, left, right) {
     var index;
     if (gamePrice.length > 1) {
-        index = partition(gamePrice, left, right); //index returned from partition
-        if (left < index - 1) { //more elements on the left side of the pivot
+        index = partition(gamePrice, left, right);
+        if (left < index - 1) {
             quickSort(gamePrice, left, index - 1);
         }
-        if (index < right) { //more elements on the right side of the pivot
+        if (index < right) {
             quickSort(gamePrice, index, right);
         }
     }
     return gamePrice;
 }
-// first call to quick sort
+
 var sortedArray = quickSort(gamePrice, 0, gamePrice.length - 1);
 console.log(sortedArray);
